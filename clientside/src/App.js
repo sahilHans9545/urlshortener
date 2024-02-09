@@ -14,6 +14,7 @@ import Analytics from "./pages/Analytics";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { backendUrl } from "../backendUrl";
 
 function App() {
   const [user, setUser] = useState({ isLoggedIn: false, userData: {} });
@@ -26,7 +27,7 @@ function App() {
       const token = localStorage.getItem("authToken");
       if (!token) return;
       console.log(token);
-      const response = await axios.get("http://localhost:8000/user/getUser", {
+      const response = await axios.get(`${backendUrl}/user/getUser`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

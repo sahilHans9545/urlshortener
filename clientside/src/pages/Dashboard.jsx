@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
+import { backendUrl } from "../../backendUrl";
 
 const Dashboard = ({ user, setUser }) => {
   const [urls, setUrls] = useState([]);
@@ -23,7 +24,7 @@ const Dashboard = ({ user, setUser }) => {
       }
       // console.log(token);
       setLoading(true);
-      const response = await axios.get("http://localhost:8000/urls", {
+      const response = await axios.get(`${backendUrl}/urls`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -56,7 +57,7 @@ const Dashboard = ({ user, setUser }) => {
       console.log(token);
       console.log(urlId);
       const response = await axios.post(
-        "http://localhost:8000/deleteUrl",
+        `${backendUrl}/deleteUrl`,
         { id: urlId },
         {
           headers: {
@@ -114,11 +115,11 @@ const Dashboard = ({ user, setUser }) => {
                     </td>
                     <td className="py-2">
                       <a
-                        href={`http://localhost:8000/${url.shortId}`}
+                        href={`${backendUrl}/${url.shortId}`}
                         className=" px-2 py-1 rounded-md text-sm"
                       >
                         {" "}
-                        {`http://localhost:8000/${url.shortId}`}
+                        {`${backendUrl}/${url.shortId}`}
                       </a>
                     </td>
                     <td className="py-2">

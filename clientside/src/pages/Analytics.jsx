@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { backendUrl } from "../../backendUrl";
 
 const Analytics = ({ user, setUser }) => {
   const { urlId } = useParams();
@@ -13,14 +14,11 @@ const Analytics = ({ user, setUser }) => {
     try {
       const token = localStorage.getItem("authToken");
       // console.log(token);
-      const response = await axios.get(
-        `http://localhost:8000/analytics/${urlId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${backendUrl}/analytics/${urlId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setAnalytics(response.data);
     } catch (error) {
       if (error.response?.status === 401) {
@@ -40,7 +38,7 @@ const Analytics = ({ user, setUser }) => {
       <Header user={user} setUser={setUser} />
       <div className="mt-11 p-5 flex flex-col items-center">
         <p className="text-xl md:text-3xl ">
-          http://localhost:8000/{analytics.shortId}
+          {backendUrl}/{analytics.shortId}
         </p>
         <div className="bg-blue-700 px-7 py-2 mt-6 rounded-md">
           Total clicks on Url :- {analytics?.totalClicks}

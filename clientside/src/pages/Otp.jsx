@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
+import { backendUrl } from "../../backendUrl";
 
 const Otp = ({ email, username, password }) => {
   const [inputOtp, setInputOtp] = useState("");
@@ -21,15 +22,12 @@ const Otp = ({ email, username, password }) => {
       });
       console.log(otp);
       setInputOtp(otp);
-      const response = await axios.post(
-        "http://localhost:8000/user/verifyOtp",
-        {
-          otp,
-          email,
-          username,
-          password,
-        }
-      );
+      const response = await axios.post(`${backendUrl}/user/verifyOtp`, {
+        otp,
+        email,
+        username,
+        password,
+      });
       console.log(response);
       toast.success(response?.data?.message);
       navigate("/");
@@ -43,12 +41,9 @@ const Otp = ({ email, username, password }) => {
   };
   const resendOtp = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:8000/user/resendOtp",
-        {
-          email,
-        }
-      );
+      const response = await axios.post(`${backendUrl}/user/resendOtp`, {
+        email,
+      });
       console.log(response.data);
       toast.success(response.data.message);
     } catch (error) {

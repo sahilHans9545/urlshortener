@@ -5,6 +5,7 @@ import Otp from "./Otp";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
+import { backendUrl } from "../../backendUrl";
 
 const Signup = () => {
   const [otpSend, setOtpSend] = useState(false);
@@ -16,7 +17,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:8000/user/register", {
+      const response = await axios.post(`${backendUrl}/user/register`, {
         email,
         password,
       });

@@ -8,6 +8,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
+import { backendUrl } from "../../backendUrl";
 
 const Home = ({ user, setUser }) => {
   const [url, setUrl] = useState("");
@@ -33,7 +34,7 @@ const Home = ({ user, setUser }) => {
       }
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:8000/getShortUrl",
+        `${backendUrl}/getShortUrl`,
         {
           url,
         },
@@ -43,7 +44,7 @@ const Home = ({ user, setUser }) => {
           },
         }
       );
-      setShortUrl(`localhost:8000/${response.data?.id}`);
+      setShortUrl(`${backendUrl}/${response.data?.id}`);
     } catch (error) {
       if (error.response?.status === 401) {
         toast.error("Authentication Failed");
@@ -120,7 +121,7 @@ const Home = ({ user, setUser }) => {
                 >
                   <li className="bg-white text-slate-900 px-4 py-2 md:py-3 rounded">
                     <a
-                      href={`http://${shortUrl}`}
+                      href={`${shortUrl}`}
                       className="text-[#69a52a] font-medium"
                       id="shortUrl"
                     >

@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../components/Loader";
+import { backendUrl } from "../../backendUrl";
 
 const Login = ({ user, setUser }) => {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ const Login = ({ user, setUser }) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:8000/user/login", {
+      const response = await axios.post(`${backendUrl}/user/login`, {
         email,
         password,
       });

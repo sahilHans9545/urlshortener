@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
+import { backendUrl } from "../../backendUrl";
 
 const EditUrl = ({ url, setUrl, urls, setUrls }) => {
   const inputElement = useRef();
@@ -17,7 +18,7 @@ const EditUrl = ({ url, setUrl, urls, setUrls }) => {
       const token = localStorage.getItem("authToken");
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:8000/editUrl",
+        `${backendUrl}/editUrl`,
         { id: url._id, newUrl: url.realUrl },
         {
           headers: {
