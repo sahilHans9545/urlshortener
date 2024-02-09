@@ -117,6 +117,7 @@ const Dashboard = ({ user, setUser }) => {
                       <a
                         href={`${backendUrl}/${url.shortId}`}
                         className=" px-2 py-1 rounded-md text-sm"
+                        target="_blank"
                       >
                         {" "}
                         {`${backendUrl}/${url.shortId}`}

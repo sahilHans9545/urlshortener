@@ -123,6 +123,7 @@ const Home = ({ user, setUser }) => {
                     <a
                       href={`${shortUrl}`}
                       className="text-[#69a52a] font-medium"
+                      target="_blank"
                       id="shortUrl"
                     >
                       {shortUrl}
