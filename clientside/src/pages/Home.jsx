@@ -8,7 +8,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
-import { backendUrl } from "../../backendUrl";
+import { backendUrl } from "../backendUrl";
 
 const Home = ({ user, setUser }) => {
   const [url, setUrl] = useState("");

@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
-import { backendUrl } from "../../backendUrl";
+import { backendUrl } from "../backendUrl";
 
 const Dashboard = ({ user, setUser }) => {
   const [urls, setUrls] = useState([]);

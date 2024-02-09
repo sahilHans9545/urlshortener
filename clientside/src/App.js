@@ -14,7 +14,7 @@ import Analytics from "./pages/Analytics";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { backendUrl } from "../backendUrl";
+import { backendUrl } from "./backendUrl";
 
 function App() {
   const [user, setUser] = useState({ isLoggedIn: false, userData: {} });

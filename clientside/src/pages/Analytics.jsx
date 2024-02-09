@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { backendUrl } from "../../backendUrl";
+import { backendUrl } from "../backendUrl";
 
 const Analytics = ({ user, setUser }) => {
   const { urlId } = useParams();

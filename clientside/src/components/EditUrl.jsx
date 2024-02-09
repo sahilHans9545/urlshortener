@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
-import { backendUrl } from "../../backendUrl";
+import { backendUrl } from "../backendUrl";
 
 const EditUrl = ({ url, setUrl, urls, setUrls }) => {
   const inputElement = useRef();

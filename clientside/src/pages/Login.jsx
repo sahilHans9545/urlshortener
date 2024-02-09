@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../components/Loader";
-import { backendUrl } from "../../backendUrl";
+import { backendUrl } from "../backendUrl";
 
 const Login = ({ user, setUser }) => {
   const [email, setEmail] = useState("");

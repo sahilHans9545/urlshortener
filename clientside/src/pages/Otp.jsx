@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
-import { backendUrl } from "../../backendUrl";
+import { backendUrl } from "../backendUrl";
 
 const Otp = ({ email, username, password }) => {
   const [inputOtp, setInputOtp] = useState("");
