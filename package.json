@@ -1,0 +1,15 @@
+{
+  "name": "url_shortener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd serverside && npm install",
+    "start-server": "cd serverside && node index.js",
+    "install-client": "cd clientside && npm install",
+    "build-client": "cd clientside && npm run build",
+    "start-client": "cd clientside && npm run start"
+  },
+  "author": "",
+  "license": "ISC"
+}
